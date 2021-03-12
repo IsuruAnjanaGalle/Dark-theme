@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark mode</title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        main{
+            margin: 5vh 15%;
+        }
+
+        h1{
+            font-size: 40px;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        img{
+            width: 50%;
+            height: auto;
+        }
+
+        p{
+            text-align: justify;
+            font-size: 25px;
+        }
+
+        label{
+            position: absolute;
+            width: 45px;
+            height: 22px;
+            right: 20px;
+            top: 20px;
+            border: 2px solid;
+            border-radius: 20px;
+        }
+
+        label::before{
+            position: absolute;
+            content: "";
+            width: 20px;
+            height: 20px;
+            left: 1px;
+            top: 1px;
+            border-radius: 50%;
+            cursor: pointer;
+            background: #000;
+            transition: 0.4s;
+        }
+
+        label.active::before{
+            left: 24px;
+            background: #fff;
+        }
+
+        body.night{
+            background: #000;
+            color: #fff;
+        }
+    </style>
+
+
+</head>
+<body>
+    <header>
+        <label id="dark-change"></label>
+    </header>
+    <main>
+        <h1>Dark mode</h1>
+        <div id="response">
+            <img src="unnamed.png">
+            <p>Dark themes reduce the luminance emitted by device screens, while still meeting 
+                minimum color contrast ratios. They help improve visual ergonomics by reducing eye 
+                strain, adjusting brightness to current lighting conditions, and facilitating screen 
+                use in dark environments – all while conserving battery power.
+            </p>
+        </div>
+    </main>
+    <script>
+        var content = document.getElementsByTagName('body')[0];
+        var darkMode = document.getElementById('dark-change');
+        darkMode.addEventListener('click',function(){
+            darkMode.classList.toggle('active');
+            content.classList.toggle('night');
+        })
+    </script>
+    
+</body>
+</html>
